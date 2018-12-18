@@ -5,6 +5,7 @@
         "initialTime": "10",
 
         "address": {
+            "badgeValue": "10",
             "street": "default",
             "pin": "74430333"
         }

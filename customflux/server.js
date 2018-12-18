@@ -64,6 +64,7 @@ app.get('/display/*', function (req, res) {
     <script src="../core/components_registry.js"></script>
     <script src="../core/context_processor.js"></script>
 
+    <script src="../components/badge.js"></script>
     <script src="../components/components.js"></script>
     <script src="../core/renderer.js"></script>
     <script src="../core/actions.js"></script>

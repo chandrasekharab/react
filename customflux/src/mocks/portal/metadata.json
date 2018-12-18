@@ -21,6 +21,16 @@
                         "name": "post"
                     }]
                 }
+            },
+            {
+                "type": "xyz-org-badge",
+                "config": {
+                    "data": "badgeValue",
+                    "actions": [{
+                        "type": "click",
+                        "name": "post"
+                    }]
+                }
             }]
         }
     }
