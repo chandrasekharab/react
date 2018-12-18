@@ -13,13 +13,6 @@
     "sectionstore": {
         "addresssec": {
             "type": "layout",
-            "config": {
-                "actions": [{
-                    "type": "change",
-                    "name": "post"
-                }]
-            },
-
             "children": [{
                 "type": "xyz-org-clock",
                 "config": {

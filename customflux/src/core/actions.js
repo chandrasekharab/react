@@ -21,10 +21,12 @@ var Actions = (function () {
 
     var _bindEvents = function (config, dom) {
     
-        debugger;
+        if (!config) {
+            return;
+        }
     
         // Read actions
-        let actions = config.actions;
+        let actions = config.actions || [];
     
         actions.forEach(action => {
             dom.addEventListener(action.type, function() {

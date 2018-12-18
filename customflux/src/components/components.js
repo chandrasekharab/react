@@ -1,29 +1,3 @@
-class GenericComponent extends React.Component {
-    getDom() {
-        return this.refs.dom;
-    }
-    componentDidMount() {
-        Actions.bindEvents(this.props.contextConfig, this.getDom());
-    }
-};
-
-class ExtensionComponent extends GenericComponent {
-    componentDidMount() {
-       let dom = this.props.contextConfig.ref;
-       this.refs.dom.appendChild(dom);
-       let component = componentregistry.getComponent(this.props.contextConfig.type)
-       
-       if (component.componentDidMount) {
-            component.componentDidMount(dom);
-       }
-       Actions.bindEvents(this.props.contextConfig, this.getDom());
-    }
-
-    render() {
-        return React.createElement('span', { ref: "dom"}, '');
-    }
-}
-
 class TextInput extends GenericComponent {
     render() {
       return React.createElement('span', { ref: "dom"}, `Text Input`);

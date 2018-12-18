@@ -43,7 +43,11 @@ var UIBootstrap = (function () {
         // Build context:
         let contextObject = {};
         contextObject.contextConfig = {};
-        contextObject.contextConfig.actions = componentSchema.config.actions;
+        
+        if (componentSchema.config) {
+            contextObject.contextConfig.actions = componentSchema.config.actions;
+        }
+
         contextObject.key = keys_inc++;
         contextObject.contextConfig.type = componentSchema.type;
     

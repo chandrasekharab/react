@@ -38,7 +38,7 @@ app.get('/api/*', function (req, res) {
     let url = req.url;
     let api = url.substring("/api/".length);
 
-   
+    res.setHeader('Content-Type', 'application/json');
     res.send(getContent(api));
 });
 
@@ -55,6 +55,7 @@ app.get('/display/portal', function (req, res) {
     <script src="../lib/react.development.js"></script>
     <script src="../lib/react-dom.development.js"></script>
 
+    <script src="../core/abstract_components.js"></script>
     <script src="../core/components_registry.js"></script>
     <script src="../core/components_registry.js"></script>
     <script src="../core/context_processor.js"></script>
