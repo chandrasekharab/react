@@ -1,0 +1,13 @@
+let globalData = {
+    pyWorkPage: {
+        firstName: "Hello",
+        lastName: "World",
+        initialTime: '10',
+
+        address: {
+            street: "default",
+            pin: "74430333"
+        }
+
+    }
+};

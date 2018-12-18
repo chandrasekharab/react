@@ -7,6 +7,23 @@ class GenericComponent extends React.Component {
     }
 };
 
+class ExtensionComponent extends GenericComponent {
+    componentDidMount() {
+       let dom = this.props.contextConfig.ref;
+       this.refs.dom.appendChild(dom);
+       let component = componentregistry.getComponent(this.props.contextConfig.type)
+       
+       if (component.componentDidMount) {
+            component.componentDidMount(dom);
+       }
+       _bindEvents(this.props.contextConfig, this.getDom());
+    }
+
+    render() {
+        return React.createElement('span', { ref: "dom"}, '');
+    }
+}
+
 class TextInput extends GenericComponent {
     render() {
       return React.createElement('span', { ref: "dom"}, `Text Input`);
@@ -17,12 +34,19 @@ class Button extends GenericComponent {
     render() {
       return React.createElement('button', { ref: "dom"}, `Button`);
     }
-} 
+}
+
+class Image extends GenericComponent {
+    render() {
+        return React.createElement("img", { ref: "dom"}, `Image Element`);
+    }
+}
+
 
 class Layout extends GenericComponent {
     render() {
       debugger;
-      return React.createElement('div', { ref: "dom"}, `Hello ${this.props.toWhat}`, this.props.children);
+      return React.createElement('div', { ref: "dom"}, '', this.props.children);
     }
 } 
 

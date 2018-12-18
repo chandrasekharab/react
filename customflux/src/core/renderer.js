@@ -1,7 +1,7 @@
 let keys_inc = 1;
 
 let _handleAction = function (actionConfig) {
-    debugger;
+    Actions.handleAction(actionConfig);
 };
 
 let _bindEvents = function (config, dom) {
@@ -16,8 +16,6 @@ let _bindEvents = function (config, dom) {
             _handleAction(action);
         });        
     });
-
-
 };
 
 let _processComponentSchema = function (componentSchema, mainFrag, childFrag = []) {
@@ -36,13 +34,41 @@ let _processComponentSchema = function (componentSchema, mainFrag, childFrag = [
 
 let _renderComponent = function (componentSchema, mainFrag, childFrag) {
 
+    if (componentSchema.type === "reference") {
+        // Sec-reference render it.
+        let config = componentSchema.config;
+        
+        // If context exist push it
+        if (config.context) {
+            ContextProcessor.push(config.context);
+        }
+
+        if (config.type === "section") {
+            let ref = config.ref;
+            let sectionMetadata = ContextProcessor.resolveSection(ref);
+            let elements = _processComponentSchema(sectionMetadata, mainFrag, childFrag);
+            ContextProcessor.pop();
+            return elements;
+        }
+
+        if (config.context) {
+            ContextProcessor.pop();
+        }
+    }
+
     // Build context:
     let contextObject = {};
     contextObject.contextConfig = {};
-    contextObject.contextConfig.actions = componentSchema.pyConfig.actions;
+    contextObject.contextConfig.actions = componentSchema.config.actions;
     contextObject.key = keys_inc++;
+    contextObject.contextConfig.type = componentSchema.type;
 
     var component = componentregistry.getComponent(componentSchema.type).render(contextObject, mainFrag, childFrag);
+
+    if (component instanceof Element) {
+        contextObject.contextConfig.ref = component;
+        component = React.createElement(ExtensionComponent, contextObject);
+    }
 
     // let elemRef = component.getDom();
     // Bind the events.
