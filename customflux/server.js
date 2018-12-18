@@ -44,14 +44,18 @@ app.get('/api/*', function (req, res) {
 
 
 
-app.get('/display/portal', function (req, res) {
+app.get('/display/*', function (req, res) {
     
-    let portalContent = getContent("portal");
+    let url = req.url;
+    let api = url.substring("/display/".length);
+
+    let portalContent = getContent(api);
 
     res.write("<html>");
 
     res.write("<head>");
     res.write(`
+    <link rel="stylesheet" href="../core/theme.css">
     <script src="../lib/react.development.js"></script>
     <script src="../lib/react-dom.development.js"></script>
 
@@ -61,7 +65,6 @@ app.get('/display/portal', function (req, res) {
     <script src="../core/context_processor.js"></script>
 
     <script src="../components/components.js"></script>
-    <script src="../components/clockplugin.js"></script>
     <script src="../core/renderer.js"></script>
     <script src="../core/actions.js"></script>
     `);

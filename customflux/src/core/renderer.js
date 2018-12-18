@@ -46,6 +46,12 @@ var UIBootstrap = (function () {
         
         if (componentSchema.config) {
             contextObject.contextConfig.actions = componentSchema.config.actions;
+
+            let prop = componentSchema.config.data;
+            if (prop) {
+                debugger;
+                contextObject[prop] = ContextProcessor.getProperyValue(prop); 
+            }
         }
 
         contextObject.key = keys_inc++;
@@ -64,7 +70,7 @@ var UIBootstrap = (function () {
     };
     
     _render = function (uiObject) {
-        debugger;
+
         // Push sections
         let uiMetadata = uiObject.uimetadata;
         let bootstrap = uiMetadata.bootstrap;

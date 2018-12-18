@@ -14,7 +14,7 @@
         "addresssec": {
             "type": "layout",
             "children": [{
-                "type": "xyz-org-clock",
+                "type": "pxTextInput",
                 "config": {
                     "data": "initialTime",
                     "actions": [{

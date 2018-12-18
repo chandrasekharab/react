@@ -14,19 +14,8 @@
         "addresssec": {
             "type": "layout",
             "children": [{
-                "type": "xyz-org-clock",
+                "type": "pxButton",
                 "config": {
-                    "data": "initialTime",
-                    "actions": [{
-                        "type": "click",
-                        "name": "post"
-                    }]
-                }
-            },
-            {
-                "type": "pxTextInput",
-                "config": {
-                    "data": "initialTime",
                     "actions": [{
                         "type": "click",
                         "name": "post"
