@@ -22,6 +22,16 @@
                         "name": "post"
                     }]
                 }
+            },
+            {
+                "type": "pxTextInput",
+                "config": {
+                    "data": "initialTime",
+                    "actions": [{
+                        "type": "click",
+                        "name": "post"
+                    }]
+                }
             }]
         }
     }
