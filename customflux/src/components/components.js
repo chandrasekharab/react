@@ -3,7 +3,7 @@ class GenericComponent extends React.Component {
         return this.refs.dom;
     }
     componentDidMount() {
-        _bindEvents(this.props.contextConfig, this.getDom());
+        Actions.bindEvents(this.props.contextConfig, this.getDom());
     }
 };
 
@@ -16,7 +16,7 @@ class ExtensionComponent extends GenericComponent {
        if (component.componentDidMount) {
             component.componentDidMount(dom);
        }
-       _bindEvents(this.props.contextConfig, this.getDom());
+       Actions.bindEvents(this.props.contextConfig, this.getDom());
     }
 
     render() {

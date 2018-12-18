@@ -1,22 +1,22 @@
-let globalContextData = {
-    pyWorkPage: {
-        $whens: {
+{
+    "pyWorkPage": {
+        "$whens": {
             "pzIsPerform" : true
         },
     
-       $fieldvalues:{
+       "$fieldvalues":{
             "pyCaption": {
                 "Enter the Name": "Entrez le nom"
             }
        },
     
-        $sections:{
+        "$sections":{
             "addresssec": {
-                name: "addresssec",
-                context: ".address"
+                "name": "addresssec",
+                "context": ".address"
             }
         }
     }
-};
+}
 
 

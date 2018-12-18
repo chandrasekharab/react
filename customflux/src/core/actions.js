@@ -1,4 +1,4 @@
-let Actions = (function () {
+var Actions = (function () {
 
     let actionHandlers = {
         "post": function (data) {
@@ -19,7 +19,22 @@ let Actions = (function () {
         }
     };
 
+    var _bindEvents = function (config, dom) {
+    
+        debugger;
+    
+        // Read actions
+        let actions = config.actions;
+    
+        actions.forEach(action => {
+            dom.addEventListener(action.type, function() {
+                _handleAction(action);
+            });        
+        });
+    };
+
     return {
-        handleAction: _handleAction
+        handleAction: _handleAction,
+        bindEvents: _bindEvents
     };
 })();

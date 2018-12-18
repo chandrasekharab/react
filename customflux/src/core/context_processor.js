@@ -1,8 +1,9 @@
-let ContextProcessor = (function () {
+var ContextProcessor = (function () {
 
     let contextStack = [];
-    let contextData = globalContextData || {};
-    let data = globalData || {};
+    let contextData = {};
+    let data = {};
+    let sectionstore = {};
 
     let _push = function (contextPath) {
 
@@ -61,11 +62,30 @@ let ContextProcessor = (function () {
 
     };
 
+    let _updateSectionStore = function (sections = {}) {
+        
+        let sectionName;
+        for(sectionName in sections) {
+            sectionstore[sectionName] = sections[sectionName];
+        }
+    };
+
+    let _updateData = function (dt) {
+        data = dt;
+    };
+
+    let _updateContextData = function (cxtData) {
+        contextData = cxtData;
+    };
+
     return  {
         push: _push,
         pop: _pop,
         getProperyValue: _getProperyValue,
         getReference: _getReference,
-        resolveSection: _resolveSection
+        resolveSection: _resolveSection,
+        updateSectionStore: _updateSectionStore,
+        updateContextData: _updateContextData,
+        updateData: _updateData
     }
 })();

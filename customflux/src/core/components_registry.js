@@ -1,4 +1,4 @@
-let componentregistry = (function () {
+var componentregistry = (function () {
 
     let components = {};
 

@@ -1,0 +1,35 @@
+{
+
+    "bootstrap": {
+
+        "type": "reference",
+        "config": {
+            "type": "section",
+            "ref": "addresssec",
+            "context": "pyWorkPage"
+        }
+    },
+
+    "sectionstore": {
+        "addresssec": {
+            "type": "layout",
+            "config": {
+                "actions": [{
+                    "type": "change",
+                    "name": "post"
+                }]
+            },
+
+            "children": [{
+                "type": "xyz-org-clock",
+                "config": {
+                    "data": "initialTime",
+                    "actions": [{
+                        "type": "click",
+                        "name": "post"
+                    }]
+                }
+            }]
+        }
+    }
+}
