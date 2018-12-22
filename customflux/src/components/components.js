@@ -26,10 +26,7 @@ class Layout extends GenericComponent {
 
 componentregistry.registerComponent("layout", {
     render: function (contextObject, mainFrag, childFrag) {
-        return ReactDOM.render(
-            React.createElement(Layout, contextObject, childFrag),
-            mainFrag
-          );
+        return React.createElement(Layout, contextObject, childFrag);
 
     }
 });

@@ -1,0 +1,168 @@
+{
+
+    "bootstrap": {
+
+        "type": "reference",
+        "config": {
+            "type": "section",
+            "ref": "addresssec",
+            "context": "pyWorkPage"
+        }
+    },
+
+    "sectionstore": {
+        "addresssec": {
+            "type": "layout",
+            "children": [{
+                    "type": "header"
+                },
+                {
+                    "type": "tabgroup",
+                    "children": [{
+                        "type": "tab",
+                        "config": {
+                            "title": "Basic Components"
+                        },
+                        "children": [{
+
+                            "type": "reference",
+                            "config": {
+                                "type": "section",
+                                "ref": "basiccomponents"
+                            }
+                        }]
+                    }, {
+                        "type": "tab",
+                        "config": {
+                            "title": "Advanced Components"
+                        },
+                        "children": [{
+                            "type": "reference",
+                            "config": {
+                                "type": "section",
+                                "ref": "advancedcomponents"
+                            }
+                        }]
+                    }, {
+                        "type": "tab",
+                        "config": {
+                            "title": "Complex Components"
+                        },
+                        "children": [{
+                            "type": "reference",
+                            "config": {
+                                "type": "section",
+                                "ref": "complexcomponents"
+                            }
+                        }]
+                    }]
+                }
+            ]
+        },
+
+        "basiccomponents": {
+            "type": "layout",
+            "children": [{
+                "type": "button",
+                "config": {
+                    "label": ".btntitle",
+                    "primary": true,
+                    "actions": [{
+                        "type": "click",
+                        "name": "post"
+                    }]
+                }
+            }]
+        },
+        "advancedcomponents": {
+            "type": "layout",
+            "children": [{
+                "type": "autocomplete",
+                "config": {
+                    "options": ".countrylist",
+                    "primary": true,
+                    "actions": [{
+                        "type": "click",
+                        "name": "post"
+                    }]
+                }
+            }]
+        },
+        "complexcomponents": {
+            "type": "layout",
+            "children": [{
+                "type": "grid",
+                "config": {
+                    "source": ".customers"
+                },
+                "children": [{
+                    "type":"grid-header",
+                    "children": [{
+                        "type":"grid-header-cell",
+                        "children": [{
+                            "type":"text",
+                            "config": {
+                                "text": "Name"
+                            }
+                        }]
+                    },
+                    {
+                        "type":"grid-header-cell",
+                        "children": [{
+                            "type":"text",
+                            "config": {
+                                "text": "ID"
+                            }
+                        }]
+                    },
+                    {
+                        "type":"grid-header-cell",
+                        "children": [{
+                            "type":"text",
+                            "config": {
+                                "text": "Department"
+                            }
+                        }]
+                    }]
+                },
+                {
+                    "type":"grid-body",
+                    "children": [{
+                        "type":"grid-row",
+                        "repeat": true,
+                        "context": ".customers",
+                        "children": [{
+                            "type":"grid-cell",
+                            "children": [{
+                                "type":"text",
+                                "config": {
+                                    "text": ".name"
+                                }
+                            }]
+                        },
+                        {
+                            "type":"grid-cell",
+                            "children": [{
+                                "type":"text",
+                                "config": {
+                                    "text": ".id"
+                                }
+                            }]
+                        },
+                        {
+                            "type":"grid-cell",
+                            "children": [{
+                                "type":"button",
+                                "config": {
+                                    "label": ".dept"
+                                }
+                            }]
+                        }]
+                        
+                    }]
+                }
+            ]
+            }]
+        }
+    }
+}

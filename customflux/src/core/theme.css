@@ -12,3 +12,15 @@
     line-height: 30px;
     vertical-align: middle;
 }
+
+.header {
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #78C2AD;
+    padding: 15px;
+    color: white;
+}
+
+.layout {
+    margin: 10px;
+}

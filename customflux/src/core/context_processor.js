@@ -10,8 +10,9 @@ var ContextProcessor = (function () {
         let path = contextPath;
         let obj = {};
         let context = {};
-
-        if (contextPath.indexOf('.') === 0) {
+        if (typeof contextPath === 'object') {
+            obj = contextPath;
+        } else if (contextPath.indexOf('.') === 0) {
             path = _current().fullRef + path;
             contextPath = contextPath.substring(1);
             obj = _current().obj[contextPath];
@@ -30,13 +31,18 @@ var ContextProcessor = (function () {
     };
 
     let _pop = function () {
-        contextStack.pop();
+        if (contextStack.length > 1) {
+            contextStack.pop();
+        }
     };
 
     let _current = function () {
         return contextStack[contextStack.length-1];
     };
     let _getProperyValue = function (propName) {
+        if (propName.indexOf(".") === 0) {
+            propName = propName.substring(1);
+        }
         return _current().obj[propName];
     };
 
@@ -52,13 +58,19 @@ var ContextProcessor = (function () {
     };
 
     let _resolveSection = function (ref) {
-        let sectionObj = _current().context["$sections"][ref];
+        let sectionObj = {};
+
+        if (_current().context && _current().context["$sections"]) {
+            sectionObj = _current().context["$sections"][ref] || {};
+        }
+
+        // Push the context
         if (sectionObj.context) {
             _push(sectionObj.context);
         }
-        
+
         // Lookup section in store
-        return sectionstore[sectionObj.name];
+        return sectionstore[sectionObj.name || ref];
 
     };
 

@@ -1,0 +1,20 @@
+{
+    "pyWorkPage": {
+        "firstName": "Hello",
+        "lastName": "World",
+        "btntitle": "Example Button",
+        "countrylist":[ 
+            { "key": "us", "value": "us", "flag": "us", "text": "USA" }, 
+            { "key": "in", "value": "in", "flag": "in", "text": "India" } ],
+
+        "customers":[ 
+            { "name": "May", "id": "1", "dept": "A"}, 
+            { "name": "Can", "id": "2", "dept": "B"}, 
+            { "name": "Shall", "id": "3", "dept": "C"}, 
+            { "name": "Will", "id": "4", "dept": "D"}, 
+            { "name": "Could", "id": "5", "dept": "E"}
+            
+        ]
+
+    }
+}

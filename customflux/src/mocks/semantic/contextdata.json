@@ -1,0 +1,24 @@
+{
+    "pyWorkPage": {
+        "$whens": {
+            "pzIsPerform" : true
+        },
+    
+       "$fieldvalues":{
+            "pyCaption": {
+                "Enter the Name": "Entrez le nom"
+            }
+       },
+    
+        "$sections":{
+            "addresssec": {
+                "name": "addresssec"
+            },
+            "basiccomponents": {
+                "name": "basiccomponents"
+            }
+        }
+    }
+}
+
+
